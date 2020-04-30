@@ -21,7 +21,7 @@ def fetch(resource)
         Net::HTTP.start(@host, @port) {|http|
             req = Net::HTTP::Get.new(resource)
             req.basic_auth @user, @password
-            p response = http.request(req)
+            response = http.request(req)
             return JSON.parse(response.body)
         }
     end
